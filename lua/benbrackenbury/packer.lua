@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
   use('github/copilot.vim')
   use('ThePrimeagen/vim-be-good')
   use('folke/tokyonight.nvim')
+  use('MunifTanjim/prettier.nvim')
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('projekt0n/github-nvim-theme')
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',

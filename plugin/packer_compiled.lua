@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -113,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -148,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/home/gloversure/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["rose-pine"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
