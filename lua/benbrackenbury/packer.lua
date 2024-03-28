@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('github/copilot.vim')
   use('ThePrimeagen/vim-be-good')
+  use('folke/tokyonight.nvim')
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
