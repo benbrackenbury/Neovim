@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 
 -- Open Neotree with <leader>e
-vim.keymap.set("n", "<leader>e", function() vim.cmd("Explore")
+vim.keymap.set("n", "<leader>e", function()
+    vim.cmd("Rex")
 end)
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
