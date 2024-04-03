@@ -1,14 +1,14 @@
-local neotree = require('neo-tree')
-
-neotree.setup({
-	default_component_configs = {
-		window = {
-			filesystem = {
-				follow_current_file = {
-					enabled = true,
-					leave_dirs_open = false,
-				},
-			},
-		}
-	}
-})
+-- local neotree = require('neo-tree')
+-- 
+-- neotree.setup({
+-- 	default_component_configs = {
+-- 		window = {
+-- 			filesystem = {
+-- 				follow_current_file = {
+-- 					enabled = true,
+-- 					leave_dirs_open = false,
+-- 				},
+-- 			},
+-- 		}
+-- 	}
+-- })
