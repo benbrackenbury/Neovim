@@ -1,8 +1,7 @@
 function SetColorScheme(color)
-    color = color or "rose-pine-main"
+    color = color or "catppuccin-macchiato"
     vim.cmd.colorscheme(color)
-    vim.o.background = "dark"
-    vim.cmd("TransparentEnable")
+    vim.cmd("TransparentDisable")
 end
 
 SetColorScheme()
