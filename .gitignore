@@ -1,0 +1,10 @@
+# macOS Finder
+.DS_Store
+Thumbs.db
+
+# Packer
+ plugin/packer_compiled.lua
+**/packer_compiled.lua
+
+# logs
+*.log
