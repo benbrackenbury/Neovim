@@ -1,10 +1,5 @@
 vim.g.mapleader = " "
 
--- Open Neotree with <leader>e
--- vim.keymap.set("n", "<leader>e", function()
---     vim.cmd("Rex")
--- end)
-
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
