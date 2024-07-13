@@ -1,47 +1,102 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    lazy = false,
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
+    {
+        "williamboman/mason.nvim",
+        lazy = false,
+        config = function()
+            require("mason").setup()
+        end,
     },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    {
+        "williamboman/mason-lspconfig.nvim",
+        lazy = false,
+        opts = {
+            auto_install = true,
+        },
+        config = function()
+            require("mason-lspconfig").setup {
+                ensure_installed = {
+                    "lua_ls",
+                    "tsserver",
+                    "eslint",
+                    "tailwindcss",
+                    "intelephense",
+                    "gopls",
+                    "dockerls",
+                    "docker_compose_language_service",
+                },
+            }
+        end
+    },
+    {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+        config = function()
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local lspconfig = require("lspconfig")
-      lspconfig.tailwindcss.setup({
-        capabilities = capabilities
-      })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
+            local lspconfig = require("lspconfig")
+            lspconfig.tailwindcss.setup({
+                capabilities = capabilities
+            })
+            lspconfig.tsserver.setup({
+                capabilities = capabilities
+            })
+            lspconfig.eslint.setup({
+                capabilities = capabilities
+            })
+            lspconfig.solargraph.setup({
+                capabilities = capabilities
+            })
+            lspconfig.html.setup({
+                capabilities = capabilities
+            })
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities
+            })
+            lspconfig.intelephense.setup({
+                capabilities = capabilities,
+                settings = {
+                    intelephense = {
+                        stubs = {
+                            "bcmath",
+                            "bz2",
+                            "calendar",
+                            "Core",
+                            "curl",
+                            "zip",
+                            "zlib",
+                            "wordpress",
+                            "woocommerce",
+                            "acf-pro",
+                            "wordpress-globals",
+                            "wp-cli",
+                            "genesis",
+                            "polylang"
+                        },
+                        environment = {
+                            includePaths =
+                            '~/.composer/vendor/php-stubs/'  -- this line forces the composer path for the stubs in case inteliphense don't find it...
+                        },
+                        files = {
+                            maxSize = 5000000,
+                        },
+                    },
+                }
+            })
+            lspconfig.gopls.setup({
+                capabilities = capabilities
+            })
+            lspconfig.dockerls.setup({
+                capabilities = capabilities
+            })
+            lspconfig.docker_compose_language_service.setup({
+                capabilities = capabilities
+            })
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.code_action, {})
-      vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
-    end,
-  },
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+            vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
+        end,
+    },
 }
