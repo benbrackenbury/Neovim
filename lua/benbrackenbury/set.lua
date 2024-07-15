@@ -27,3 +27,6 @@ vim.g.mapleader = " "
 vim.opt.termguicolors = true
 
 vim.opt.listchars = { space = '.', tab = '-> '}
+
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
