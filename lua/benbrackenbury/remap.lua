@@ -18,7 +18,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "<leader>fm", function()
-	vim.lsp.buf.format() 
+	vim.lsp.buf.format()
+end)
+
+vim.keymap.set("n", "<leader>ts", function()
+    vim.cmd("silent !tmux neww tmux-sessionizer")
 end)
 
 
