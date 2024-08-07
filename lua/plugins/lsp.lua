@@ -23,6 +23,7 @@ return {
                     "gopls",
                     "dockerls",
                     "docker_compose_language_service",
+                    "astro",
                 },
             }
         end
@@ -89,6 +90,12 @@ return {
                 capabilities = capabilities
             })
             lspconfig.docker_compose_language_service.setup({
+                capabilities = capabilities
+            })
+            lspconfig.astro.setup({
+                capabilities = capabilities
+            })
+            lspconfig.emmet_language_server.setup({
                 capabilities = capabilities
             })
 
