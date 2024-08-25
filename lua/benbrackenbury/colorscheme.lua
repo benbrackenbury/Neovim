@@ -1,5 +1,6 @@
 function SetColorScheme(color)
-    vim.cmd("TransparentDisable")
+    vim.cmd("colorscheme rose-pine")
+    vim.cmd("TransparentEnable")
     vim.cmd('set background=dark')
 end
 
