@@ -25,8 +25,13 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.opt.termguicolors = true
-
 vim.opt.listchars = { space = '.', tab = '-> '}
+
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
