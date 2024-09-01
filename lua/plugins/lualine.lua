@@ -6,7 +6,7 @@ return {
             options = {
                 component_separators = { left = '', right = ''},
                 section_separators = { left = '', right = ''},
-                theme = 'codedark',
+                theme = 'auto',
             },
             sections = {
                 lualine_a = {'mode'},

@@ -1,7 +1,6 @@
 function SetColorScheme(color)
-    vim.cmd("colorscheme rose-pine")
     vim.cmd("TransparentEnable")
-    vim.cmd('set background=dark')
+    -- vim.cmd("TransparentDisable")
 
     -- Transparent tabline
     vim.cmd('hi TabLineSel guibg=NONE')
