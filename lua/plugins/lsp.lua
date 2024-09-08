@@ -81,7 +81,8 @@ return {
                             maxSize = 5000000,
                         },
                     },
-                }
+                },
+                root_dir = lspconfig.util.root_pattern("composer.json", ".git", "package.json"),
             })
             lspconfig.gopls.setup({
                 capabilities = capabilities
@@ -96,7 +97,8 @@ return {
                 capabilities = capabilities
             })
             lspconfig.emmet_language_server.setup({
-                capabilities = capabilities
+                capabilities = capabilities,
+                filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "markdown", "php" }
             })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
