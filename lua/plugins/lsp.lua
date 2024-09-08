@@ -16,7 +16,7 @@ return {
             require("mason-lspconfig").setup {
                 ensure_installed = {
                     "lua_ls",
-                    "tsserver",
+                    "ts_ls",
                     "eslint",
                     "tailwindcss",
                     "intelephense",
@@ -38,7 +38,7 @@ return {
             lspconfig.tailwindcss.setup({
                 capabilities = capabilities
             })
-            lspconfig.tsserver.setup({
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities
             })
             lspconfig.eslint.setup({
