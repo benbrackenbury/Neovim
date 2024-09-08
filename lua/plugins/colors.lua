@@ -37,9 +37,10 @@ return {
 
     -- Auto set background based on OS
     {
-        "f-person/auto-dark-mode.nvim",
+        "Odilf/auto-dark-mode.nvim",
         opts = {
             update_interval = 1000,
+            fallback = "dark",
             set_dark_mode = function()
                 vim.api.nvim_set_option_value("background", "dark", {})
                 vim.cmd("colorscheme rose-pine")
