@@ -1,14 +1,35 @@
+function SetColorScheme()
+    -- Transparent tabline
+    vim.cmd('hi TabLineSel guibg=NONE')
+    vim.cmd('hi TabLine guibg=NONE')
+    vim.cmd('hi TabLineFill guibg=NONE')
+    vim.cmd('hi TabLineSel guifg=#f9f9f9')
+    vim.cmd('hi TabLine guifg=#f9f9f9')
+    vim.cmd('hi TabLineFill guifg=#f9f9f9')
+
+    -- Transparent Telescope
+    vim.cmd('hi TelescopeNormal guibg=NONE')
+    vim.cmd('hi TelescopeSelection guibg=NONE')
+    vim.cmd('hi TelescopeSelectionCaret guibg=NONE')
+    vim.cmd('hi TelescopeMultiSelection guibg=NONE')
+    vim.cmd('hi TelescopeBorder guibg=NONE')
+    vim.cmd('hi TelescopePromptBorder guibg=NONE')
+    vim.cmd('hi TelescopeResultsBorder guibg=NONE')
+    vim.cmd('hi TelescopePreviewBorder guibg=NONE')
+    vim.cmd('hi TelescopeMatching guibg=NONE')
+    vim.cmd('hi TelescopePromptPrefix guibg=NONE')
+    vim.cmd('hi TelescopePromptPrefix guifg=#f9f9f9')
+    vim.cmd('hi TelescopePromptBorder guifg=#f9f9f9')
+    vim.cmd('hi TelescopeResultsBorder guifg=#f9f9f9')
+    vim.cmd('hi TelescopePreviewBorder guifg=#f9f9f9')
+    vim.cmd('hi TelescopeMatching guifg=#f9f9f9')
+    vim.cmd('hi TelescopeSelection guifg=#f9f9f9')
+    vim.cmd('hi TelescopeSelectionCaret guifg=#f9f9f9')
+    vim.cmd('hi TelescopeMultiSelection guifg=#f9f9f9')
+    vim.cmd('hi TelescopeBorder guifg=#f9f9f9')
+end
+
 return {
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
     {
         "rose-pine/neovim",
         name = "rose-pine",
@@ -22,7 +43,7 @@ return {
             set_dark_mode = function()
                 vim.api.nvim_set_option_value("background", "dark", {})
                 vim.cmd("colorscheme rose-pine")
-                -- set lualine theme to 'auto'
+                SetColorScheme()
                 require("lualine").setup({
                     options = {
                         theme = "auto",
@@ -32,7 +53,7 @@ return {
             set_light_mode = function()
                 vim.api.nvim_set_option_value("background", "light", {})
                 vim.cmd("colorscheme default")
-                -- set lualine theme to 'gruvbox'
+                SetColorScheme()
                 require("lualine").setup({
                     options = {
                         theme = "Tomorrow",

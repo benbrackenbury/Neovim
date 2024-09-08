@@ -13,6 +13,7 @@ return {
                 follow_current_file = {
                     enabled = true,
                 },
+                hijack_netrw_behavior = "disabled"
             },
         }
     end
