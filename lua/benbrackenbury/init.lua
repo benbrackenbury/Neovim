@@ -1,6 +1,7 @@
 require("benbrackenbury.remap")
 require("benbrackenbury.set")
 require("benbrackenbury.lazy")
+require("benbrackenbury.colorscheme")
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
