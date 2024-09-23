@@ -99,7 +99,7 @@ return {
             })
             lspconfig.emmet_language_server.setup({
                 capabilities = capabilities,
-                filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "markdown", "php" }
+                filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "markdown", "php", "blade" }
             })
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
