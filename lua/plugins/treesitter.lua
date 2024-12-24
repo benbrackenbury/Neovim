@@ -5,7 +5,19 @@ return {
     },
     config = function()
         require 'nvim-treesitter.configs'.setup({
-            ensure_installed = { "javascript", "typescript", "go", "html", "php", "c", "lua", "vim", "vimdoc", "query" },
+            ensure_installed = {
+                "javascript",
+                "typescript",
+                "go",
+                "html",
+                "php",
+                "c",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query",
+                "swift",
+            },
             indent = {
                 enable = true,
             },
@@ -13,6 +25,7 @@ return {
             auto_install = true,
             highlight = {
                 enable = true,
+                disable = { "swift" },
                 additional_vim_regex_highlighting = false,
             },
             textobjects = {
