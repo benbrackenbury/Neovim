@@ -10,6 +10,8 @@ return {
             scope = {
                 enabled = false,
             },
+            enabled = false,
         }
+        vim.keymap.set('n', '<leader>ti', '<cmd>IBLToggle<cr>');
     end,
 }
