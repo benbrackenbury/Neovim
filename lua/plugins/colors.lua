@@ -6,27 +6,24 @@ return {
             require("rose-pine").setup({
                 styles = {
                     bold = true,
-                    italic = true,
-                    transparency = true,
+                    ialics = true,
+                    transparency = false,
                 },
             })
         end,
     },
+
+
     {
-        "xiyaowong/transparent.nvim",
+        'olivercederborg/poimandres.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('poimandres').setup {}
+        end,
+
+        init = function()
+            vim.cmd("colorscheme poimandres")
+        end
     },
-    {
-        "f-person/auto-dark-mode.nvim",
-        opts = {
-            update_interval = 1000,
-            set_dark_mode = function()
-                vim.api.nvim_set_option_value("background", "dark", {})
-                vim.cmd("colorscheme rose-pine")
-            end,
-            set_light_mode = function()
-                vim.api.nvim_set_option_value("background", "light", {})
-                vim.cmd("colorscheme default")
-            end,
-        },
-    }
 }
