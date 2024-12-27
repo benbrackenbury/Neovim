@@ -10,3 +10,7 @@ Thumbs.db
 *.log
 
 applemusic.lua
+
+**/*.vim
+
+lua/plugins/dev.lua
