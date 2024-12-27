@@ -1,20 +1,5 @@
 return {
     {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require("rose-pine").setup({
-                styles = {
-                    bold = true,
-                    ialics = true,
-                    transparency = false,
-                },
-            })
-        end,
-    },
-
-
-    {
         'olivercederborg/poimandres.nvim',
         lazy = false,
         priority = 1000,
