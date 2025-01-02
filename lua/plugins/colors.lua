@@ -11,4 +11,5 @@ return {
             vim.cmd("colorscheme poimandres")
         end
     },
+
 }
