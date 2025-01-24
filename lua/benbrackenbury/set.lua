@@ -20,6 +20,9 @@ vim.opt.scrolloff = 16
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.opt.splitright = true
+vim.opt.splitbelow = false
+
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
