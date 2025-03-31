@@ -31,3 +31,5 @@ for _, mode in pairs({ 'n', 'v', 'x' }) do
         vim.keymap.set(mode, key, '<nop>')
     end
 end
+
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
