@@ -31,8 +31,3 @@ for _, mode in pairs({ 'n', 'v', 'x' }) do
         vim.keymap.set(mode, key, '<nop>')
     end
 end
-
-
-vim.keymap.set("n", "<leader>h", function()
-    vim.lsp.inlay_hint(0, nil)
-end)
