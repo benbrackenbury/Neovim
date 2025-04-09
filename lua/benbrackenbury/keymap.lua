@@ -16,6 +16,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("i", "jk", "<esc>l")
 
 vim.keymap.set("n", "<leader>fm", function()
 	vim.lsp.buf.format()
