@@ -59,7 +59,6 @@ vim.lsp.enable({
     'compose',
 })
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
-vim.o.winborder = 'rounded'
 
 -- Enable diagnostics
 vim.diagnostic.config({
