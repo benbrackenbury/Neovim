@@ -57,6 +57,7 @@ vim.lsp.enable({
     'intelephense',
     'docker',
     'compose',
+    'csharp',
 })
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
 

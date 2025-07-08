@@ -17,3 +17,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+-- .cshtml = razor
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"*.cshtml", "*.razor"},
+  callback = function()
+    vim.bo.filetype = "razor"
+  end,
+})
