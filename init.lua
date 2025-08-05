@@ -1,4 +1,5 @@
 -- Options
+local vim = vim
 vim.opt.mouse = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -26,6 +27,16 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 vim.o.winborder = "rounded"
 
+-- Highlight yanked selections
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = vim.api.nvim_create_augroup('highlight_yank', {}),
+    desc = 'Hightlight selection on yank',
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
+    end,
+})
+
 -- Colors
 vim.pack.add({ "https://github.com/vague2k/vague.nvim" })
 require "vague".setup({ transparent = true })
@@ -37,9 +48,9 @@ vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
-    "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvimtools/none-ls-extras.nvim",
+    "https://github.com/prettier/vim-prettier",
 })
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
@@ -50,28 +61,47 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 require("mason").setup()
-vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format)
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "typescript", "javascript" },
+    highlight = { enable = true }
+})
+
+vim.keymap.set('n', '<leader>fm', function()
+    local prettier_files = { '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.yaml', '.prettierrc.toml' }
+    local has_prettier = false
+    for _, file in ipairs(prettier_files) do
+        if vim.fn.filereadable(vim.fn.expand('~/') .. file) == 1 or vim.fn.filereadable(vim.fn.getcwd() .. '/' .. file) == 1 then
+            has_prettier = true
+            break
+        end
+    end
+    if has_prettier then
+        local success = pcall(function() vim.cmd('Prettier') end)
+        if not success then
+            vim.lsp.buf.format()
+        end
+    else
+        vim.lsp.buf.format()
+    end
+end)
+
 vim.lsp.enable({
-    'luals',
-    'typescript',
+    'lua_ls',
+    'ts_ls',
     'eslint',
-    'tailwind',
-    'emmet',
+    'tailwindcss',
+    'emmet_language_server',
     'gopls',
     'intelephense',
-    'docker',
-    'compose',
-    'csharp',
+    'docker_language_server',
+    'docker_compose_language_service',
+    'csharp_ls',
 })
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
-local null_ls = require("null-ls")
-null_ls.setup({
-    null_ls.builtins.formatting.prettier
-})
 
 -- Diagnostics
 vim.diagnostic.config({
-    virtual_lines = true,
+    virtual_lines = false,
     virtual_text = false
 })
 
