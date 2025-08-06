@@ -105,6 +105,7 @@ vim.keymap.set('n', '<leader>fm', function()
         vim.lsp.buf.format()
     end
 end)
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 
 for _, lsp in ipairs(ESSENTIAL_LSPS) do
   vim.lsp.enable(lsp.config_file)
@@ -180,3 +181,13 @@ vim.pack.add({
         },
     }
 })
+
+-- Disable arrow keys
+for _, mode in pairs({ 'n', 'v', 'x' }) do
+    for _, key in pairs({ '<Up>', '<Down>', '<Left>', '<Right>' }) do
+        vim.keymap.set(mode, key, '<nop>')
+    end
+end
+
+-- jk to escape
+vim.keymap.set("i", "jk", "<esc>l")
