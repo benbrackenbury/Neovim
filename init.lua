@@ -44,6 +44,19 @@ vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
 
 -- LSP
+local ESSENTIAL_LSPS = {
+    {config_file='lua_ls', package_name='lua-language-server'},
+    {config_file='ts_ls', package_name='typescript-language-server'},
+    {config_file='eslint', package_name='eslint-lsp'},
+    {config_file='tailwindcss', package_name='tailwindcss-language-server'},
+    {config_file='emmet_language_server', package_name='emmet-language-server'},
+    {config_file='gopls', package_name='gopls'},
+    {config_file='intelephense', package_name='intelephense'},
+    {config_file='docker_language_server', package_name='docker-language-server'},
+    {config_file='docker_compose_language_service', package_name='docker-compose-language-service'},
+    {config_file='csharp_ls', package_name='csharp-language-server'},
+    {config_file='laravel_ls', package_name='laravel-ls'},
+}
 vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/neovim/nvim-lspconfig",
@@ -60,7 +73,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
 require("mason").setup()
+vim.api.nvim_create_user_command('MyCommand', function()
+    for _, lsp in ipairs(ESSENTIAL_LSPS) do
+        vim.cmd("MasonInstall " .. lsp.package_name)
+    end
+    vim.cmd("MasonInstall stylua")
+end, {})
+
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "typescript", "javascript" },
     highlight = { enable = true }
@@ -85,18 +106,9 @@ vim.keymap.set('n', '<leader>fm', function()
     end
 end)
 
-vim.lsp.enable({
-    'lua_ls',
-    'ts_ls',
-    'eslint',
-    'tailwindcss',
-    'emmet_language_server',
-    'gopls',
-    'intelephense',
-    'docker_language_server',
-    'docker_compose_language_service',
-    'csharp_ls',
-})
+for _, lsp in ipairs(ESSENTIAL_LSPS) do
+  vim.lsp.enable(lsp.config_file)
+end
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
 
 -- Diagnostics
