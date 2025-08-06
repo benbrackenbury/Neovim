@@ -183,7 +183,7 @@ vim.pack.add({
 })
 
 -- Disable arrow keys
-for _, mode in pairs({ 'n', 'v', 'x' }) do
+for _, mode in pairs({ 'n', 'v', 'x', 'i' }) do
     for _, key in pairs({ '<Up>', '<Down>', '<Left>', '<Right>' }) do
         vim.keymap.set(mode, key, '<nop>')
     end
