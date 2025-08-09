@@ -60,8 +60,6 @@ vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/nvimtools/none-ls-extras.nvim",
     "https://github.com/prettier/vim-prettier",
 })
 vim.api.nvim_create_autocmd('LspAttach', {
