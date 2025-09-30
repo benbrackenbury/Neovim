@@ -37,7 +37,6 @@ vim.pack.add({
     "https://github.com/mbbill/undotree",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/christoomey/vim-tmux-navigator",
-    "https://github.com/L3MON4D3/LuaSnip",
 })
 require("mason").setup()
 require('oil').setup({})
@@ -103,9 +102,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
     end,
 })
-
-require("luasnip").setup({ enable_autosnippets = true })
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
-local ls = require("luasnip")
-vim.keymap.set({ "i" }, "<C-e>", function() ls.expand() end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(1) end, { silent = true })
