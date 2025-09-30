@@ -27,7 +27,7 @@
 
 return {
     cmd = { 'intelephense', '--stdio' },
-    filetypes = { 'php' },
+    filetypes = { 'php', 'blade' },
     root_markers = { '.git', 'composer.json' },
     settings = {
         intelephense = {
@@ -109,5 +109,8 @@ return {
                 "polylang"
             },
         }
-    }
+    },
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+    end
 }

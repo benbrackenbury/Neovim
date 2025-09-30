@@ -38,6 +38,7 @@ vim.pack.add({
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/christoomey/vim-tmux-navigator",
     "https://github.com/creativenull/efmls-configs-nvim",
+    "https://github.com/stevearc/conform.nvim",
 })
 require("mason").setup()
 require('oil').setup({})
@@ -85,6 +86,16 @@ vim.lsp.enable({
     'csharp_ls',
     'laravel_ls',
     'efm',
+})
+
+require("conform").setup({
+    formatters_by_ft = {
+        php = { "php_cs_fixer" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+    },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
