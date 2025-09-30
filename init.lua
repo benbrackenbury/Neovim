@@ -37,6 +37,7 @@ vim.pack.add({
     "https://github.com/mbbill/undotree",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/christoomey/vim-tmux-navigator",
+    "https://github.com/creativenull/efmls-configs-nvim",
 })
 require("mason").setup()
 require('oil').setup({})
@@ -83,6 +84,7 @@ vim.lsp.enable({
     'docker_compose_language_service',
     'csharp_ls',
     'laravel_ls',
+    'efm',
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
