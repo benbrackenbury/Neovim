@@ -86,6 +86,7 @@ vim.lsp.enable({
     'csharp_ls',
     'laravel_ls',
     'efm',
+    'jsonls',
 })
 
 require("conform").setup({
