@@ -53,7 +53,6 @@ vim.lsp.enable({
     'eslint',
     'tailwind',
     'emmet',
-    'gopls',
     'intelephense',
     'docker',
     'compose',
