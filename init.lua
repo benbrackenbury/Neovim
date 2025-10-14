@@ -22,13 +22,18 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+vim.diagnostic.config({
+    virtual_lines = false,
+    virtual_text = false,
+})
+
 vim.pack.add({
     "https://github.com/vague2k/vague.nvim",
+    "https://github.com/benbrackenbury/tr100.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/prettier/vim-prettier",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/stevearc/oil.nvim",
@@ -37,8 +42,8 @@ vim.pack.add({
     "https://github.com/mbbill/undotree",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/christoomey/vim-tmux-navigator",
-    "https://github.com/creativenull/efmls-configs-nvim",
     "https://github.com/stevearc/conform.nvim",
+    "https://github.com/olimorris/codecompanion.nvim",
 })
 require("mason").setup()
 require('oil').setup({})
@@ -49,9 +54,37 @@ require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
 })
 
-require "vague".setup({ transparent = true })
-vim.cmd("colorscheme vague")
-vim.cmd(":hi statusline guibg=NONE")
+require("codecompanion").setup({
+    strategies = {
+        chat = {
+            adapter = "xai",
+        },
+        inline = {
+            adapter = "xai",
+        }
+    },
+    adapters = {
+        http = {
+            xai = function()
+                return require("codecompanion.adapters").extend("xai", {
+                    env = {
+                        api_key = "cmd:gpg -qd ~/.secrets/xai-api-key.gpg",
+                    },
+                    schema = {
+                        model = {
+                            default = "grok-code-fast",
+                        },
+                    },
+                })
+            end,
+        },
+    },
+})
+
+-- require "vague".setup({ transparent = true })
+-- vim.cmd("colorscheme vague")
+-- vim.cmd(":hi statusline guibg=NONE")
+require('tr100')
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>")
@@ -76,7 +109,6 @@ end
 vim.lsp.enable({
     'lua_ls',
     'ts_ls',
-    'eslint',
     'tailwindcss',
     'emmet_language_server',
     'gopls',
@@ -85,17 +117,19 @@ vim.lsp.enable({
     'docker_compose_language_service',
     'csharp_ls',
     'laravel_ls',
-    'efm',
     'jsonls',
+    'sourcekit',
+    'ruby_lsp',
+    'biome',
 })
 
 require("conform").setup({
     formatters_by_ft = {
         php = { "php_cs_fixer" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
+        javascript = { "biome" },
+        typescript = { "biome" },
+        javascriptreact = { "biome" },
+        typescriptreact = { "biome" },
     },
 })
 
@@ -117,8 +151,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-vim.api.nvim_create_autocmd({"WinEnter", "WinLeave"}, {
-  callback = function(ev)
-    vim.wo.cursorline = ev.event == "WinEnter"
-  end,
+vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
+    callback = function(ev)
+        vim.wo.cursorline = ev.event == "WinEnter"
+    end,
 })
+vim.wo.cursorline = true
