@@ -29,7 +29,6 @@ vim.diagnostic.config({
 
 vim.pack.add({
     "https://github.com/vague2k/vague.nvim",
-    "https://github.com/benbrackenbury/tr100.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
@@ -81,10 +80,9 @@ require("codecompanion").setup({
     },
 })
 
--- require "vague".setup({ transparent = true })
--- vim.cmd("colorscheme vague")
--- vim.cmd(":hi statusline guibg=NONE")
-require('tr100')
+require "vague".setup({ transparent = true })
+vim.cmd("colorscheme vague")
+vim.cmd(":hi statusline guibg=NONE")
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>")
