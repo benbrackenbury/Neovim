@@ -1,4 +1,1 @@
-# My current Neovim config
-
-> [!NOTE]
-> Requires Neovim 0.12.0+, see other branches for previous configs that work with older versions of Neovim
+# My neovim seup has been moved to [https://github.com/benbrackenbury/dotfiles/tree/master/config/nvim](https://github.com/benbrackenbury/dotfiles/tree/master/config/nvim)
