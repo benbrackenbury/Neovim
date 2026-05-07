@@ -11,13 +11,11 @@ vim.pack.add({
 	"https://github.com/wansmer/treesj",
 	"https://github.com/AndrewRadev/tagalong.vim",
 	"https://github.com/supermaven-inc/supermaven-nvim",
-	"https://github.com/m4xshen/hardtime.nvim",
 })
 
 require("oil").setup()
 require("nvim-autopairs").setup()
 require("treesj").setup()
 require("supermaven-nvim").setup({})
-require("hardtime").setup()
 
 vim.g.tagalong_additional_filetypes = { "blade" }
