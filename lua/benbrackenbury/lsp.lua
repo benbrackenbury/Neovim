@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
 		"intelephense",
 		"ts_ls",
 		"gopls",
+		"oxlint",
 	},
 })
 

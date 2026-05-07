@@ -42,3 +42,12 @@ require("transparent").setup({
 		"CursorLineNr",
 	},
 })
+
+vim.opt.list = true
+vim.opt.listchars = {
+  lead = "·",        -- only spaces before first char
+  tab = "→ ",
+  trail = "·",       -- optional: trailing spaces
+}
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#333333" })
+vim.api.nvim_set_hl(0, "NonText", { fg = "#333333" })
