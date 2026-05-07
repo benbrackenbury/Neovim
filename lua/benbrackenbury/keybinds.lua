@@ -29,3 +29,6 @@ vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<leader>vrc", "<CMD>tabe ~/.config/cvim<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yef", "<CMD>!cat % | pbcopy<CR>")
+
+vim.keymap.set("n", "<leader>H", "<CMD>diffget //2<CR>")
+vim.keymap.set("n", "<leader>L", "<CMD>diffget //3<CR>")
