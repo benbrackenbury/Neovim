@@ -3,12 +3,12 @@ vim.pack.add({
 	"https://github.com/rose-pine/neovim",
 	"https://github.com/tiesen243/vercel.nvim",
 	"https://github.com/vague-theme/vague.nvim",
+	"https://github.com/olivercederborg/poimandres.nvim",
 })
 
-require("vercel").setup({
-	transparent = true,
+require("poimandres").setup({
 })
-vim.cmd.colorscheme("vercel")
+vim.cmd.colorscheme("poimandres")
 
 require("transparent").setup({
 	groups = {
@@ -45,9 +45,7 @@ require("transparent").setup({
 
 vim.opt.list = true
 vim.opt.listchars = {
-  lead = "·",        -- only spaces before first char
+  lead = "·",
   tab = "→ ",
-  trail = "·",       -- optional: trailing spaces
+  trail = "·",
 }
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#333333" })
-vim.api.nvim_set_hl(0, "NonText", { fg = "#333333" })
