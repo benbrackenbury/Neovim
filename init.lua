@@ -17,7 +17,7 @@ vim.opt.swapfile = false
 vim.o.winborder = "rounded"
 vim.o.pumborder = "rounded"
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
 vim.opt.undofile = true
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
 
