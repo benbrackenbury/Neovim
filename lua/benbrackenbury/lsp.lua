@@ -29,6 +29,7 @@ require("conform").setup({
 		go = { "gofumpt" },
 		html = { "prettier" },
 		lua = { "stylua" },
+		rust = { "rustfmt" },
 	},
 })
 
