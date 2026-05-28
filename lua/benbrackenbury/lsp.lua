@@ -31,6 +31,14 @@ require("conform").setup({
 		lua = { "stylua" },
 		rust = { "rustfmt" },
 	},
+	default_format_opts = {
+		timeout_ms = 3000,
+	},
+	formatters = {
+		pint = {
+			args = { "--quiet", "$FILENAME" },
+		},
+	},
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
