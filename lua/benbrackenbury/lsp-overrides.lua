@@ -98,3 +98,8 @@ vim.lsp.config("emmet_language_server", {
 		"php",
 	},
 })
+
+vim.lsp.config("ruby-lsp", {
+  cmd = { "ruby-lsp" },
+  init_options = {  linters = { 'rubocop' } }
+})
