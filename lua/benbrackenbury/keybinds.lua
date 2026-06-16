@@ -32,3 +32,7 @@ vim.keymap.set("n", "<leader>yef", "<CMD>!cat % | pbcopy<CR>")
 
 vim.keymap.set("n", "<leader>H", "<CMD>diffget //2<CR>")
 vim.keymap.set("n", "<leader>L", "<CMD>diffget //3<CR>")
+
+vim.keymap.set("n", "<F9>", function()
+		vim.cmd("!%:p")
+end)
