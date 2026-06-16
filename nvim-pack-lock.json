@@ -20,6 +20,10 @@
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "cursor-themes": {
+      "rev": "1173d11a77323adf3fd6d38c658bf58dc00301ac",
+      "src": "https://github.com/duarteocarmo/cursor-themes"
+    },
     "efmls-configs-nvim": {
       "rev": "40d58c472e6379c7af4717bddb815bbed78b603f",
       "src": "https://github.com/creativenull/efmls-configs-nvim"
@@ -127,8 +131,7 @@
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
       "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
