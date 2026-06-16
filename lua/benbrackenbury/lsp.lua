@@ -30,6 +30,7 @@ require("conform").setup({
 		html = { "prettier" },
 		lua = { "stylua" },
 		rust = { "rustfmt" },
+		lua = { "stylua" },
 	},
 	default_format_opts = {
 		timeout_ms = 3000,
