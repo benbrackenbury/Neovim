@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>fm", function()
 end)
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
-vim.keymap.set("n", "<leader>vrc", "<CMD>tabe ~/.config/cvim<CR>")
+vim.keymap.set("n", "<leader>vrc", "<CMD>tabe ~/.config/nvim/init.lua<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yef", "<CMD>!cat % | pbcopy<CR>")
 
