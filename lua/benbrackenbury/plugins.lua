@@ -9,7 +9,6 @@ vim.pack.add({
 	"https://github.com/AndrewRadev/tagalong.vim",
 	"https://github.com/folke/ts-comments.nvim",
 	"https://github.com/wansmer/treesj",
-	"https://github.com/AndrewRadev/tagalong.vim",
 	"https://github.com/supermaven-inc/supermaven-nvim",
 })
 
