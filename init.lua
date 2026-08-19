@@ -21,6 +21,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
 vim.opt.undofile = true
 vim.o.completeopt = "noselect,menuone,popup,fuzzy"
+vim.o.exrc = true
 
 for _, key in pairs({ "<Up>", "<Down>", "<Left>", "<Right>" }) do
 	vim.keymap.set({ "n", "v", "x", "i" }, key, "<nop>")
