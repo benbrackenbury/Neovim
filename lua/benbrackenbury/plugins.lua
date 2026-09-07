@@ -4,13 +4,16 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/mbbill/undotree",
-	"https://github.com/christoomey/vim-tmux-navigator",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/AndrewRadev/tagalong.vim",
 	"https://github.com/folke/ts-comments.nvim",
 	"https://github.com/wansmer/treesj",
 	"https://github.com/supermaven-inc/supermaven-nvim",
 })
+
+if vim.env.TMUX then
+	vim.pack.add({ "https://github.com/christoomey/vim-tmux-navigator" })
+end
 
 require("oil").setup()
 require("nvim-autopairs").setup()

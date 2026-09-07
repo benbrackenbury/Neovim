@@ -36,3 +36,22 @@ vim.keymap.set("n", "<leader>L", "<CMD>diffget //3<CR>")
 vim.keymap.set("n", "<F9>", function()
 		vim.cmd("!%:p")
 end)
+
+-- herdr vim-navigator (mirror of vim-tmux-navigator): herdr's nav plugin
+-- forwards ctrl+hjkl here when this pane runs nvim; move between nvim
+-- windows first, cross to the neighboring herdr pane at the edge.
+if vim.env.HERDR_PANE_ID then
+  local function nav(wincmd_dir, herdr_dir)
+    return function()
+      local before = vim.api.nvim_get_current_win()
+      vim.cmd('wincmd ' .. wincmd_dir)
+      if vim.api.nvim_get_current_win() == before then
+        vim.system({ 'herdr', 'pane', 'focus', '--direction', herdr_dir, '--pane', vim.env.HERDR_PANE_ID })
+      end
+    end
+  end
+  vim.keymap.set('n', '<C-h>', nav('h', 'left'),  { desc = 'Window/pane left' })
+  vim.keymap.set('n', '<C-j>', nav('j', 'down'),  { desc = 'Window/pane down' })
+  vim.keymap.set('n', '<C-k>', nav('k', 'up'),    { desc = 'Window/pane up' })
+  vim.keymap.set('n', '<C-l>', nav('l', 'right'), { desc = 'Window/pane right' })
+end
