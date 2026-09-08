@@ -4,10 +4,14 @@ vim.pack.add({
 	"https://github.com/tiesen243/vercel.nvim",
 	"https://github.com/vague-theme/vague.nvim",
 	"https://github.com/olivercederborg/poimandres.nvim",
+	"https://github.com/ellisonleao/gruvbox.nvim",
 })
 
-require("poimandres").setup({})
-vim.cmd.colorscheme("poimandres")
+require("rose-pine").setup({
+		transparent = true,
+		disable_background = true,
+})
+vim.cmd.colorscheme("rose-pine")
 
 require("transparent").setup({
 	groups = {
@@ -35,6 +39,19 @@ require("transparent").setup({
 		"StatusLineNC",
 		"EndOfBuffer",
 		"TreesitterContext",
+	},
+	extra_groups = {
+		"NormalFloat",
+		"FloatBorder",
+		"TelescopeNormal",
+		"TelescopeBorder",
+		"TelescopePromptNormal",
+		"TelescopePromptBorder",
+		"TelescopeResultsNormal",
+		"TelescopePreviewNormal",
+		"TabLine",
+		"TabLineFill",
+		"TabLineSel",
 	},
 	excludeGroups = {
 		"CursorLine",
