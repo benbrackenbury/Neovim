@@ -8,7 +8,6 @@ vim.pack.add({
 	"https://github.com/AndrewRadev/tagalong.vim",
 	"https://github.com/folke/ts-comments.nvim",
 	"https://github.com/wansmer/treesj",
-	"https://github.com/supermaven-inc/supermaven-nvim",
 })
 
 if vim.env.TMUX then
@@ -18,6 +17,5 @@ end
 require("oil").setup()
 require("nvim-autopairs").setup()
 require("treesj").setup()
-require("supermaven-nvim").setup({})
 
 vim.g.tagalong_additional_filetypes = { "blade" }
